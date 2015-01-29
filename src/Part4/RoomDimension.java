@@ -4,6 +4,8 @@ package Part4;
  * Created by Nathan Bingham on 1/28/15.
  */
 
+// Test
+
 public class RoomDimension
 {
     private double length;
