@@ -24,9 +24,27 @@ public class CarpetDriver
         double roomLength = scanner.nextDouble();
 
         RoomDimension roomSize = new RoomDimension(roomLength,roomWidth);
-        RoomCarpet theRoom = new RoomCarpet(roomSize,PLUSH_PRICE);
 
-        System.out.println("The total cost of the carpet for the room is $"+theRoom.getTotalCost()+".");
+        System.out.print("Please input 1 for Plush, 2 for Shag, or 3 for Saxony: ");
+        int carpetType = scanner.nextInt();
+        double chosenCarpet;
+
+        switch (carpetType)
+        {
+            case 1: chosenCarpet = PLUSH_PRICE;
+                break;
+            case 2: chosenCarpet = SHAG_PRICE;
+                break;
+            case 3: chosenCarpet = SAXONY_PRICE;
+                break;
+            default: System.err.println("Error: Invalid selection. Defaulting to $1 per square foot.");
+                chosenCarpet = 1;
+                break;
+        }
+
+        RoomCarpet theRoom = new RoomCarpet(roomSize,chosenCarpet);
+
+        System.out.println("The total cost of the carpet ($"+chosenCarpet+"/square foot) for this room is $"+theRoom.getTotalCost()+".");
 
         // DEPRECATED CODE
 //        System.out.println("This file tests the RoomCarpet and RoomDimensions classes");
